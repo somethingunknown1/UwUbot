@@ -1,6 +1,6 @@
 require('dotenv').config();
 const { Client, GatewayIntentBits, Partials } = require('discord.js');
-const fetch = require('node-fetch'); // Add this at the top if not already required
+const fetch = (...args) => import('node-fetch').then(({default: fetch}) => fetch(...args));
 
 // Use environment variable for the bot token
 const DISCORD_BOT_TOKEN = process.env.DISCORD_BOT_TOKEN;
