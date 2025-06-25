@@ -1,0 +1,123 @@
+body {
+    background: #3ec6f7;
+    min-height: 100vh;
+    margin: 0;
+    font-family: system-ui, sans-serif;
+    position: relative;
+    overflow-x: hidden;
+}
+
+/* Right side middle image */
+body::after {
+    content: "";
+    position: fixed;
+    top: 50%;
+    right: 0;
+    transform: translateY(-50%);
+    width: 180px;
+    height: 180px;
+    background: url('background.png') no-repeat center center;
+    background-size: contain;
+    z-index: 0;
+    opacity: 0.8;
+    pointer-events: none;
+}
+
+/* Left side middle image (image2.png) */
+body::before {
+    content: "";
+    position: fixed;
+    top: 50%;
+    left: 0;
+    transform: translateY(-50%);
+    width: 180px;
+    height: 180px;
+    background: url('image2.png') no-repeat center center;
+    background-size: contain;
+    z-index: 0;
+    opacity: 0.8;
+    pointer-events: none;
+}
+
+/* Keep content above background images */
+.container, nav, main, #admin-panel, #search-panel {
+    position: relative;
+    z-index: 1;
+}
+.container {
+    max-width: 600px;
+    margin: 100px auto;
+    background: #fff;
+    border-radius: 12px;
+    box-shadow: 0 2px 16px rgba(0,0,0,0.08);
+    padding: 40px 32px;
+    text-align: center;
+}
+h1 {
+    margin-bottom: 16px;
+    color: #2a72e5;
+}
+nav {
+    background: #2a72e5;
+    padding: 12px 0;
+    text-align: center;
+    margin-bottom: 32px;
+}
+nav a {
+    color: #fff;
+    text-decoration: none;
+    margin: 0 18px;
+    font-weight: 500;
+    font-size: 1.1em;
+    transition: color 0.2s;
+}
+nav a:hover {
+    color: #d1e0fa;
+}
+#admin-panel, #search-panel {
+    max-width: 600px;
+    margin: 40px auto;
+    background: #fff;
+    border-radius: 12px;
+    box-shadow: 0 2px 16px rgba(0,0,0,0.08);
+    padding: 32px 24px;
+}
+#admin-form input, #admin-form textarea, #search-form input {
+    width: 100%;
+    margin-bottom: 12px;
+    padding: 10px;
+    border: 1px solid #cfd8dc;
+    border-radius: 6px;
+    font-size: 1em;
+}
+#admin-form button, #search-form button {
+    background: #2a72e5;
+    color: #fff;
+    border: none;
+    padding: 10px 24px;
+    border-radius: 6px;
+    font-size: 1em;
+    cursor: pointer;
+    transition: background 0.2s;
+}
+#admin-form button:hover, #search-form button:hover {
+    background: #1a4e9e;
+}
+.user-profile {
+    background: #f4f6fb;
+    border-radius: 8px;
+    padding: 16px;
+    margin-bottom: 18px;
+    text-align: left;
+}
+.user-profile h3 {
+    margin-top: 0;
+}
+#admin-message {
+    margin-top: 10px;
+    color: #2a72e5;
+    font-weight: bold;
+}
+#search-results ul {
+    padding-left: 20px;
+}

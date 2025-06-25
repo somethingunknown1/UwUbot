@@ -1,0 +1,19 @@
+{
+  "name": "webtesters",
+  "version": "1.0.0",
+  "description": "Website for managing Discord user profiles and application statuses.",
+  "main": "server.js",
+  "scripts": {
+    "start": "node server.js"
+  },
+  "dependencies": {
+    "axios": "^1.10.0",
+    "body-parser": "^1.20.3",
+    "cors": "^2.8.5",
+    "discord.js": "^14.20.0",
+    "dotenv": "^16.5.0",
+    "express": "^4.21.2",
+    "express-session": "^1.18.1",
+    "uuid": "^9.0.1"
+  }
+}

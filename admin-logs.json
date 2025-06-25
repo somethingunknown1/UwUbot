@@ -1,0 +1,22 @@
+[
+  {
+    "timestamp": "2025-06-25T00:57:02.433Z",
+    "action": "added",
+    "userId": "866973900641665074",
+    "admin": "CursedRadioDemon",
+    "changes": {
+      "username": "imdonewitheverythang",
+      "userId": "866973900641665074",
+      "notes": [
+        "Owner"
+      ],
+      "applications": [
+        {
+          "status": "Pass",
+          "reason": "Test",
+          "date": "2025-06-25T00:57:02.396Z"
+        }
+      ]
+    }
+  }
+]

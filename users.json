@@ -1,0 +1,32 @@
+[
+  {
+    "id": "b484bdf2-7a81-494b-a8d2-af95a7998f9f",
+    "username": "mais_88123",
+    "userId": "1341822207185125509",
+    "notes": [
+      "Did very well now incharge of discord moderation."
+    ],
+    "applications": [
+      {
+        "status": "pass",
+        "reason": "Did great",
+        "date": "2025-06-24T23:01:21.940Z"
+      }
+    ]
+  },
+  {
+    "id": "6e08569b-e26d-4737-803c-c38f1fe89a81",
+    "username": "imdonewitheverythang",
+    "userId": "866973900641665074",
+    "notes": [
+      "Owner"
+    ],
+    "applications": [
+      {
+        "status": "Pass",
+        "reason": "Test",
+        "date": "2025-06-25T00:57:02.396Z"
+      }
+    ]
+  }
+]
