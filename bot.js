@@ -1,5 +1,6 @@
 require('dotenv').config();
 const { Client, GatewayIntentBits, Partials } = require('discord.js');
+const fetch = require('node-fetch'); // Add this at the top if not already required
 
 // Use environment variable for the bot token
 const DISCORD_BOT_TOKEN = process.env.DISCORD_BOT_TOKEN;
@@ -26,6 +27,27 @@ client.on('warn', (info) => {
 
 client.on('disconnect', () => {
     console.warn('Bot disconnected from Discord!');
+});
+
+client.on('guildMemberAdd', async (member) => {
+    const joinDate = new Date();
+    const note = `Joined ${joinDate.getDate().toString().padStart(2, '0')}/${
+        (joinDate.getMonth() + 1).toString().padStart(2, '0')
+    }/${joinDate.getFullYear()}`;
+    try {
+        await fetch('https://uwu23-production.up.railway.app/api/users', {
+            method: 'POST',
+            headers: { 'Content-Type': 'application/json' },
+            body: JSON.stringify({
+                username: member.user.username,
+                userId: member.user.id,
+                notes: [note]
+            })
+        });
+        console.log(`Added ${member.user.username} (${member.user.id}) with join note.`);
+    } catch (err) {
+        console.error('Failed to add new member to website:', err);
+    }
 });
 
 if (!DISCORD_BOT_TOKEN) {

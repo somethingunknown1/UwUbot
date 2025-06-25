@@ -7,62 +7,17 @@
     <link rel="stylesheet" href="style.css">
 </head>
 <body>
-    <div id="admin-warning" style="display:none; background: #222; color: #fff; padding: 0.75em 1em; text-align: center; font-size: 1rem;">
-        Make sure to sign in with Discord too or it may not work.
-    </div>
-    <nav style="display: flex; justify-content: space-between; align-items: center; background: #1976d2; color: #fff; padding: 1em;">
-        <div>
-            <a href="index.html" style="color: #fff;">Home</a>
-            <a href="#" id="search-link" style="color: #fff;">Search</a>
-            <a href="#" id="admin-link" style="color: #fff; display:none;">Admin Panel</a>
-        </div>
-        <button id="admin-signin-btn" style="background: #fff; color: #1976d2; border: none; padding: 0.5em 1em; border-radius: 4px; cursor: pointer;">Admin Sign In</button>
+    <nav>
+        <a href="#" id="home-link">Home</a>
+        <a href="#" id="search-link">Search</a>
+        <a href="#" id="admin-link">Admin</a>
+        <button id="discord-login-btn-home" type="button">Login with Discord</button>
     </nav>
     <main>
         <div class="container" id="main-content">
-            <h1>Hello, welcome to Cursed Layers website!</h1>
-            <p>
-                Here you can view your application results, see why you failed, and check any notes your account may have.<br>
-                If you find any bugs, notify <strong>cursedradiodemon</strong> so I can fix them.
-            </p>
-            <div id="discord-login-home" style="margin-top:2em;">
-                <button id="discord-login-btn-home" type="button">Login with Discord</button>
-            </div>
+            <h1>Welcome to Cursed Layers!</h1>
+            <p>View your application results, see why you failed, and check any notes your account may have.</p>
         </div>
-        <!-- Admin Sign In Panel (hidden by default) -->
-        <div class="container" id="admin-signin-panel" style="display:none;">
-            <h2>Admin Sign In</h2>
-            <form id="admin-signin-form">
-                <input type="password" id="admin-signin-password" placeholder="Enter Admin Password" required />
-                <button type="submit">Sign In</button>
-            </form>
-            <div id="admin-signin-message"></div>
-        </div>
-        <!-- Admin Panel (hidden by default) -->
-        <div class="container" id="admin-panel" style="display:none;">
-            <h2>Admin Panel</h2>
-            <div>Signed in as: <span id="admin-username-display"></span></div>
-            <form id="admin-form" style="margin-top:2em;">
-                <label for="admin-username">Discord Username</label>
-                <input type="text" id="admin-username" placeholder="Discord Username" required />
-
-                <label for="admin-userid">Discord User ID</label>
-                <input type="text" id="admin-userid" placeholder="Discord User ID" required />
-
-                <label for="admin-notes">Notes</label>
-                <textarea id="admin-notes" placeholder="Notes (comma separated)"></textarea>
-
-                <label for="admin-app-status">Pass/Fail</label>
-                <input type="text" id="admin-app-status" placeholder="Pass/Fail" />
-
-                <label for="admin-app-reason">Reason</label>
-                <input type="text" id="admin-app-reason" placeholder="Reason" />
-
-                <button type="submit">Add/Update User</button>
-            </form>
-            <div id="admin-message"></div>
-        </div>
-        <!-- Search Panel (hidden by default) -->
         <div class="container" id="search-panel" style="display:none;">
             <h2>Search User</h2>
             <form id="search-form">
@@ -71,27 +26,34 @@
             </form>
             <div id="search-results"></div>
         </div>
+        <div class="container" id="admin-signin-panel" style="display:none;">
+            <h2>Admin Sign In</h2>
+            <form id="admin-signin-form">
+                <input type="password" id="admin-signin-password" placeholder="Enter Admin Password" required />
+                <button type="submit">Sign In</button>
+            </form>
+            <div id="admin-signin-message"></div>
+        </div>
+        <div class="container" id="admin-panel" style="display:none;">
+            <h2>Admin Panel</h2>
+            <form id="admin-form">
+                <label for="admin-username">Discord Username</label>
+                <input type="text" id="admin-username" required />
+                <label for="admin-userid">Discord User ID</label>
+                <input type="text" id="admin-userid" required />
+                <label for="admin-notes">Notes</label>
+                <textarea id="admin-notes" placeholder="Notes (comma separated)"></textarea>
+                <ul id="admin-notes-list"></ul>
+                <label for="admin-app-status">Pass/Fail</label>
+                <input type="text" id="admin-app-status" placeholder="Pass/Fail" />
+                <label for="admin-app-reason">Reason</label>
+                <input type="text" id="admin-app-reason" placeholder="Reason" />
+                <ul id="admin-apps-list"></ul>
+                <button type="submit">Add/Update User</button>
+            </form>
+            <div id="admin-message"></div>
+        </div>
     </main>
     <script src="main.js"></script>
-    <script>
-    // Add Discord login from home page
-    document.addEventListener('DOMContentLoaded', function() {
-        const btn = document.getElementById('discord-login-btn-home');
-        if (btn) {
-            btn.onclick = function() {
-                window.location.href = '/api/auth/discord';
-            };
-        }
-        // Show admin warning after admin sign in
-        const adminSignInForm = document.getElementById('admin-signin-form');
-        if (adminSignInForm) {
-            adminSignInForm.addEventListener('submit', function(e) {
-                setTimeout(function() {
-                    document.getElementById('admin-warning').style.display = '';
-                }, 100); // Show after sign in
-            });
-        }
-    });
-    </script>
 </body>
 </html>
